@@ -1,0 +1,68 @@
+CREATE TABLE Employee
+(
+Id INT,
+FirstName VARCHAR(30),
+LastName VARCHAR(30),
+EmploymentStatus BIT,
+Gender CHAR(1),
+CONSTRAINT PkEmployee PRIMARY KEY(Id),
+CONSTRAINT CheckGenderInput CHECK (Gender IN('M','F'))	
+);
+
+
+--CREATE DATABASE vjezba;
+
+--DROP DATABASE vjezba;
+
+CREATE TABLE Product
+(
+Price DECIMAL(10,2),
+Title VARCHAR(30),
+Id UNIQUEIDENTIFIER default NEWID(),
+Stock INT, 
+CountryOfOrigin VARCHAR(50),
+CONSTRAINT PkProduct PRIMARY KEY(Id),
+CONSTRAINT CheckStockInput CHECK (Stock>0)
+);
+
+
+CREATE TABLE Receipt
+(
+ReceiptNumber INT,
+PurchasedProduct UNIQUEIDENTIFIER,
+TimeOfPurchase DATETIME default GETDATE(),
+EmployeeId INT, 
+CONSTRAINT PkReceipt PRIMARY KEY(ReceiptNumber),
+CONSTRAINT FkReceipt FOREIGN KEY(PurchasedProduct) REFERENCES product(Id),
+CONSTRAINT FkEmployeeId FOREIGN KEY(EmployeeId) REFERENCES employee(Id)
+);
+
+ALTER TABLE Receipt ADD PaymentMethod VARCHAR(10);
+
+ALTER TABLE Employee ADD DateOfBirth DATETIME;
+
+ALTER TABLE Receipt DROP COLUMN PaymentMethod;
+
+ALTER TABLE Receipt ADD CONSTRAINT CheckPaymentMethodInput CHECK (PaymentMethod IN ('CASH', 'CARD'));
+
+SELECT* FROM Product;
+
+SELECT * FROM Receipt;
+
+SELECT* FROM Employee WHERE Gender='M';
+
+UPDATE Employee SET EmploymentStatus = 'TRUE' WHERE Id='2';
+
+DELETE FROM Employee WHERE	EmploymentStatus = 'FALSE';
+
+SELECT DISTINCT LastName FROM Employee ORDER BY LastName ASC;
+
+SELECT Receipt.ReceiptNumber, Product.Price, Product.Title, Receipt.TimeOfPurchase
+FROM Product
+INNER JOIN Receipt
+ON Product.Id=Receipt.PurchasedProduct;
+
+SELECT Employee.FirstName, Employee.LastName, Receipt.ReceiptNumber
+FROM Employee
+FULL OUTER JOIN Receipt ON Employee.Id=Receipt.EmployeeId
+ORDER BY ReceiptNumber DESC;
