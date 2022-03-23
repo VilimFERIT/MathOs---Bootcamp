@@ -1,0 +1,22 @@
+diff a/3. i 4. dan - WebApi/WebApplication1/WebApplication1/Controllers/EmployeeController.cs b/3. i 4. dan - WebApi/WebApplication1/WebApplication1/Controllers/EmployeeController.cs	(rejected hunks)
+@@ -30,14 +30,18 @@
+         public HttpResponseMessage ReturnEmployeeName(int id)
+         {
+             
+-            Employee foundEmployee = employees.Find(employee => employee.Id == id);
++            //Employee foundEmployee = employees.Find(employee => employee.Id == id);
++            EmployeeWorkDate employeeWorkDate = new EmployeeWorkDate();
++            EmployeeWorkDate foundWorkDates. = workDates.Find(workDates => workDates.Id == id);
++            foundWorkDates.StartingDates = newStartingDates;
++            foundWorkDates.EndingDates = newEndingDates;
+             if (foundEmployee == null)
+             {
+                 return Request.CreateResponse(HttpStatusCode.NotFound, $"The employee that you are looking for is not in the database!") ;
+             }
+             else
+             {
+-                return Request.CreateResponse(HttpStatusCode.Found, foundEmployee);
++                return Request.CreateResponse(HttpStatusCode.Found, foundWorkDates);
+             }
+         }
+ 

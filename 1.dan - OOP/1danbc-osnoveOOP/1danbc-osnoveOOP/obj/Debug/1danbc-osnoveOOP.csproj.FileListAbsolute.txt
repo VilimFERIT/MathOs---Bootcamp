@@ -1,0 +1,8 @@
+C:\Users\Korisnik\Desktop\bootcamp\1danbc-osnoveOOP\1danbc-osnoveOOP\bin\Debug\1danbc-osnoveOOP.exe.config
+C:\Users\Korisnik\Desktop\bootcamp\1danbc-osnoveOOP\1danbc-osnoveOOP\bin\Debug\1danbc-osnoveOOP.exe
+C:\Users\Korisnik\Desktop\bootcamp\1danbc-osnoveOOP\1danbc-osnoveOOP\bin\Debug\1danbc-osnoveOOP.pdb
+C:\Users\Korisnik\Desktop\bootcamp\1danbc-osnoveOOP\1danbc-osnoveOOP\obj\Debug\1danbc-osnoveOOP.csproj.AssemblyReference.cache
+C:\Users\Korisnik\Desktop\bootcamp\1danbc-osnoveOOP\1danbc-osnoveOOP\obj\Debug\1danbc-osnoveOOP.csproj.SuggestedBindingRedirects.cache
+C:\Users\Korisnik\Desktop\bootcamp\1danbc-osnoveOOP\1danbc-osnoveOOP\obj\Debug\1danbc-osnoveOOP.csproj.CoreCompileInputs.cache
+C:\Users\Korisnik\Desktop\bootcamp\1danbc-osnoveOOP\1danbc-osnoveOOP\obj\Debug\1danbc-osnoveOOP.exe
+C:\Users\Korisnik\Desktop\bootcamp\1danbc-osnoveOOP\1danbc-osnoveOOP\obj\Debug\1danbc-osnoveOOP.pdb
