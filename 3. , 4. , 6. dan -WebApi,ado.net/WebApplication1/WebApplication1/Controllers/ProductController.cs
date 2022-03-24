@@ -49,10 +49,10 @@ namespace WebApplication1.Controllers
         [HttpGet]
         [Route("webapi/getsqlhaving")]
 
-        public HttpResponseMessage GetProductPriceOver40()
+        public HttpResponseMessage GetProductPriceOverX(decimal price)
         {
             SqlConnection connection = new SqlConnection(connectionString);
-            using (SqlCommand command = new SqlCommand("SELECT * FROM Product GROUP BY Price HAVING Price > 40'", connection))
+            using (SqlCommand command = new SqlCommand($"SELECT * FROM Product GROUP BY Price HAVING Price > {price}'", connection))
             {
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
@@ -133,18 +133,20 @@ namespace WebApplication1.Controllers
         // POST: api/Prnoduct
 
 
-        //[HttpPost]
+        [HttpPost]
 
-        //[Route("webapi/populatedataset")]
+        [Route("webapi/populatedataset")]
 
-        public void PopulateDataset()
+        //preko data adaptera mozemo vidjeti sve podatke u tablici
+        public HttpResponseMessage PopulateDataset()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string adapterString = "SELECT * FROM Products";
+                string adapterString = "SELECT * FROM Product";
                 SqlDataAdapter myAdapter = new SqlDataAdapter(adapterString, connectionString);
                 DataTable products = new DataTable();
                 myAdapter.Fill(products);
+                return Request.CreateResponse(HttpStatusCode.OK, products.Rows);
                 // mozes returnat products.Rows
             }
        
@@ -250,6 +252,7 @@ namespace WebApplication1.Controllers
 
      [Route("webapi/deletesql")] //?id=725018C6-2B1B-41F8-A3E8-17A55C709535
 
+     //ne mozes obrisati tablice koje su povezane s drugom tablicom s foreign key osim sa cascadeom
         public HttpResponseMessage DeleteSql(Guid id)
         {
             SqlConnection connection = new SqlConnection(connectionString);
