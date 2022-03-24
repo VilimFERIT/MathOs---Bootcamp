@@ -67,7 +67,7 @@ INSERT INTO Employee VALUES(
 INSERT INTO Product (Price,Title,Stock,CountryOfOrigin)VALUES(
 '59.99',
 'Keyboard',
-'150',
+'150',	
 'Switzerland'
 );
 
@@ -82,6 +82,8 @@ INSERT INTO Product (Price,Title,Stock,CountryOfOrigin)VALUES(
 SELECT* FROM Product;
 
 SELECT * FROM Receipt;
+
+Select * FROM Employee;
 
 SELECT* FROM Employee WHERE Gender='M';
 
@@ -100,3 +102,5 @@ SELECT Employee.FirstName, Employee.LastName, Receipt.ReceiptNumber
 FROM Employee
 FULL OUTER JOIN Receipt ON Employee.Id=Receipt.EmployeeId
 ORDER BY ReceiptNumber DESC;
+
+SELECT Price FROM Product GROUP BY Price HAVING Price > 40;

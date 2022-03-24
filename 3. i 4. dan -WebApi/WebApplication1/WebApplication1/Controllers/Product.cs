@@ -7,7 +7,7 @@ namespace WebApplication1.Controllers
 {
     public class Product
     {
-        public double Price { get; set; }
+        public decimal Price { get; set; }
 
         public string Name { get; set; }
 

@@ -13,6 +13,8 @@ namespace WebApplication1.Controllers
 
         public string LastName { get; set; }
 
+        public string Gender { get; set; }
+
         public List<DateTime> StartingDates { get; set; }
 
         public  List<DateTime> EndingDates  { get; set; }
