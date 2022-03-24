@@ -16,7 +16,7 @@ namespace WebApplication1.Controllers
         static List<Product> products = new List<Product>();
         static List<Product> sqlProducts = new List<Product>();
 
-        static string connectionString = @"Data Source=DESKTOP-KKL4FN6\SQLEXPRESS;Initial Catalog = vjezba; Integrated Security = True";
+        public static string connectionString = @"Data Source=DESKTOP-KKL4FN6\SQLEXPRESS;Initial Catalog = vjezba; Integrated Security = True";
         
         [HttpGet]
         [Route("webapi/getsqlproduct")]
@@ -137,6 +137,7 @@ namespace WebApplication1.Controllers
 
         [Route("webapi/populatedataset")]
 
+        //primjer data adaptera
         //preko data adaptera mozemo vidjeti sve podatke u tablici
         public HttpResponseMessage PopulateDataset()
         {
@@ -198,16 +199,40 @@ namespace WebApplication1.Controllers
 
         public HttpResponseMessage UpdatePrice(Guid id)
         {
-            SqlConnection connection = new SqlConnection(connectionString);
 
+            //SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-KKL4FN6\SQLEXPRESS;Initial Catalog = vjezba; Integrated Security = True");
             //preko dataadaptera
-            using (SqlCommand command = new SqlCommand($"UPDATE Product SET Price='89.99' WHERE Id ='{id}'", connection))
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-            }
+            //using (SqlCommand command = new SqlCommand($"UPDATE Product SET Price='89.99' WHERE Id ='{id}'", connection))
+            //{
+            //    connection.Open();
+            //    SqlDataAdapter adapter = new SqlDataAdapter(command, connection);
+            //    //SqlDataReader reader = command.ExecuteReader();
+            //}
 
-            return Request.CreateResponse(HttpStatusCode.OK, "The price has been updated!");
+            //return Request.CreateResponse(HttpStatusCode.OK, "The price has been updated!");
+
+            string command = $"SELECT * FROM Product";
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlDataAdapter adapter = new SqlDataAdapter(command, connection);
+
+            DataSet ds  = new DataSet();
+
+            adapter.Fill(ds, "Product");
+
+            DataTable dataTable = ds.Tables["Product"];
+
+            dataTable.Rows[0]["Title"] = "Headphones";
+
+            string sql = $"UPDATE Product SET Price='89.99' WHERE Id ='{id}'";
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+
+            connection.Open();
+            SqlCommand cmd = new SqlCommand(sql, connection);
+            sqlDataAdapter.UpdateCommand=cmd;
+            adapter.Update(ds, "Product");
+            return Request.CreateResponse(HttpStatusCode.OK, "The product has been updated!");
+
+
 
         }
 

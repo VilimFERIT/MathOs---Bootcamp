@@ -13,6 +13,8 @@ namespace WebApplication1.Controllers
         //danasnja lit-https://www.tutorialsteacher.com/webapi/what-is-web-api
         //nastavak koda na treci dan (api)
         // GET api/values
+
+        //napravi sve datareadere i adaptere za ovaj kontroler
         [HttpGet]
 
         [Route("webapi/countemployees")]
