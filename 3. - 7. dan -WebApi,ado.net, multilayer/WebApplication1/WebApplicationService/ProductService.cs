@@ -22,6 +22,12 @@ namespace WebApplication.Service
             ProductRepository repository= new ProductRepository();
             repository.AddNewProduct(product);
         }
+
+    public void UpdatePriceMla(Guid productId, decimal newPrice)
+        {
+            ProductRepository productRepository= new ProductRepository();
+            productRepository.UpdateProductPrice(productId,newPrice);
+        }
     }
 }
 

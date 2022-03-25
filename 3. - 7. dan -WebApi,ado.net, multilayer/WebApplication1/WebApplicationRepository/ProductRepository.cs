@@ -55,5 +55,19 @@ namespace WebApplication.Repository
             }
 
         }
+
+        public void UpdateProductPrice(Guid productId, decimal newPrice)
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            using (connection)
+            {
+                connection.Open();
+                string updateProductPriceCommand=$"UPDATE Product SET Price = '{newPrice}' WHERE Id = '{productId}'";
+               adapter.InsertCommand= new SqlCommand(updateProductPriceCommand, connection);
+                adapter.InsertCommand.ExecuteNonQuery();
+                
+            }
+        }
     }
 }

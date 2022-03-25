@@ -256,6 +256,21 @@ namespace WebApplication1.Controllers
 
         // PUT: api/Product/5
         //executenonquery
+
+        [HttpPut]
+        [Route("webapi/updatePriceMla")]
+
+        public HttpResponseMessage UpdatePriceMla (Guid productId, decimal newPrice)
+        {
+        ProductService productService = new ProductService();
+                
+        productService.UpdatePriceMla(productId, newPrice);
+
+            return Request.CreateResponse(HttpStatusCode.OK, "The price has been updated!");
+
+        }
+
+
         [HttpPut]
 
         [Route("product/sqlupdateprice")]
