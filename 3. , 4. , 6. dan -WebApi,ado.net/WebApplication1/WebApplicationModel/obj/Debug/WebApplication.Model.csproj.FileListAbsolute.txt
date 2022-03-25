@@ -1,0 +1,6 @@
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. , 4. , 6. dan -WebApi,ado.net\WebApplication1\WebApplicationModel\obj\Debug\WebApplication.Model.csproj.AssemblyReference.cache
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. , 4. , 6. dan -WebApi,ado.net\WebApplication1\WebApplicationModel\obj\Debug\WebApplication.Model.csproj.CoreCompileInputs.cache
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. , 4. , 6. dan -WebApi,ado.net\WebApplication1\WebApplicationModel\bin\Debug\WebApplicationModel.dll
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. , 4. , 6. dan -WebApi,ado.net\WebApplication1\WebApplicationModel\bin\Debug\WebApplicationModel.pdb
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. , 4. , 6. dan -WebApi,ado.net\WebApplication1\WebApplicationModel\obj\Debug\WebApplicationModel.dll
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. , 4. , 6. dan -WebApi,ado.net\WebApplication1\WebApplicationModel\obj\Debug\WebApplicationModel.pdb

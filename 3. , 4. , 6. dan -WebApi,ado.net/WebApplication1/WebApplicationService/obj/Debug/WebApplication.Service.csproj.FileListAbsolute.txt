@@ -1,0 +1,11 @@
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. , 4. , 6. dan -WebApi,ado.net\WebApplication1\WebApplicationService\obj\Debug\WebApplication.Service.csproj.AssemblyReference.cache
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. , 4. , 6. dan -WebApi,ado.net\WebApplication1\WebApplicationService\obj\Debug\WebApplication.Service.csproj.CoreCompileInputs.cache
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. , 4. , 6. dan -WebApi,ado.net\WebApplication1\WebApplicationService\bin\Debug\WebApplicationService.dll
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. , 4. , 6. dan -WebApi,ado.net\WebApplication1\WebApplicationService\bin\Debug\WebApplicationService.pdb
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. , 4. , 6. dan -WebApi,ado.net\WebApplication1\WebApplicationService\bin\Debug\WebApplicationRepository.dll
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. , 4. , 6. dan -WebApi,ado.net\WebApplication1\WebApplicationService\bin\Debug\WebApplicationModel.dll
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. , 4. , 6. dan -WebApi,ado.net\WebApplication1\WebApplicationService\bin\Debug\WebApplicationRepository.pdb
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. , 4. , 6. dan -WebApi,ado.net\WebApplication1\WebApplicationService\bin\Debug\WebApplicationModel.pdb
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. , 4. , 6. dan -WebApi,ado.net\WebApplication1\WebApplicationService\obj\Debug\WebApplication.Service.csproj.CopyComplete
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. , 4. , 6. dan -WebApi,ado.net\WebApplication1\WebApplicationService\obj\Debug\WebApplicationService.dll
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. , 4. , 6. dan -WebApi,ado.net\WebApplication1\WebApplicationService\obj\Debug\WebApplicationService.pdb

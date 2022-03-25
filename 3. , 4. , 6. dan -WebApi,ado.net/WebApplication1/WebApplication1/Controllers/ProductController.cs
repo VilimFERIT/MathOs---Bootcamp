@@ -6,6 +6,8 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Data.SqlClient;
 using System.Data;
+using WebApplication.Service;
+using WebApplication.Model;
 
 namespace WebApplication1.Controllers
 {
@@ -17,7 +19,32 @@ namespace WebApplication1.Controllers
         static List<Product> sqlProducts = new List<Product>();
 
         public static string connectionString = @"Data Source=DESKTOP-KKL4FN6\SQLEXPRESS;Initial Catalog = vjezba; Integrated Security = True";
-        
+
+        [HttpGet]
+        [Route("webapi/getbyidmultilayer")]
+
+        public HttpResponseMessage GetProduct(Guid id)
+        {
+            ProductService productService = new ProductService();
+            List<ProductModel> modelProducts = new List<ProductModel>();
+
+            modelProducts=productService.GetProduct(id);
+
+            if(modelProducts==null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, modelProducts);
+            }
+
+
+        }
+
+
+
+
         [HttpGet]
         [Route("webapi/getsqlproduct")]
         public HttpResponseMessage GetTableContent()
@@ -88,11 +115,7 @@ namespace WebApplication1.Controllers
                 }
             }
             return Request.CreateResponse(HttpStatusCode.OK, sqlProducts);
-
-
-
         }
-
 
         // GET: api/Product
         [HttpGet]
@@ -110,8 +133,6 @@ namespace WebApplication1.Controllers
                 return Request.CreateResponse(HttpStatusCode.NotFound, $"The item with the id{productId} is not in our stock!");
             }
         }
-
-        //test
 
         // GET: api/Product/5
         [HttpGet]
@@ -236,7 +257,7 @@ namespace WebApplication1.Controllers
 
             DataSet ds  = new DataSet();
 
-            adapter.Fill(ds, "Product");
+            adapter.Fill(ds, "Product"); 
 
             DataTable dataTable = ds.Tables["Product"];
 

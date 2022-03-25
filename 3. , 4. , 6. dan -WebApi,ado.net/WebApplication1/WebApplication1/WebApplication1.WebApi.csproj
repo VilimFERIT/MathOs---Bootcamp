@@ -251,6 +251,16 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebApplicationModel\WebApplication.Model.csproj">
+      <Project>{7f593f99-c233-44cc-98ba-981e5e02e461}</Project>
+      <Name>WebApplication.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApplicationService\WebApplication.Service.csproj">
+      <Project>{48DF727A-FED3-4CAD-912F-1EBA11008BD6}</Project>
+      <Name>WebApplication.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
