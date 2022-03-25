@@ -153,6 +153,29 @@ namespace WebApplication1.Controllers
 
         // POST: api/Prnoduct
 
+        //
+
+        [HttpPost]
+        [Route("webapi/insertproductmla")]
+
+        //ovdje dobijem error da ne mogu pretvoriti varchar u numeric kada pokusam upisati cijenu(decimal)
+        //inace uspije ubaciti novi product
+        public HttpResponseMessage InsertProductMla (ProductModel product)
+        {
+            ProductService service = new ProductService();
+
+            if (product != null)
+            {
+                service.InsertProduct(product);
+                return Request.CreateResponse(HttpStatusCode.OK, $"A new product with the name {product.Name} has been inserted!");
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+
+        }
+
 
         [HttpPost]
 

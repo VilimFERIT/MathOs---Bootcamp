@@ -7,3 +7,12 @@ C:\Users\Korisnik\Documents\MathOs Bootcamp\3. , 4. , 6. dan -WebApi,ado.net\Web
 C:\Users\Korisnik\Documents\MathOs Bootcamp\3. , 4. , 6. dan -WebApi,ado.net\WebApplication1\WebApplicationRepository\obj\Debug\WebApplication.Repository.csproj.CopyComplete
 C:\Users\Korisnik\Documents\MathOs Bootcamp\3. , 4. , 6. dan -WebApi,ado.net\WebApplication1\WebApplicationRepository\obj\Debug\WebApplicationRepository.dll
 C:\Users\Korisnik\Documents\MathOs Bootcamp\3. , 4. , 6. dan -WebApi,ado.net\WebApplication1\WebApplicationRepository\obj\Debug\WebApplicationRepository.pdb
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplicationRepository\bin\Debug\WebApplicationRepository.dll
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplicationRepository\bin\Debug\WebApplicationRepository.pdb
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplicationRepository\bin\Debug\WebApplicationModel.dll
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplicationRepository\bin\Debug\WebApplicationModel.pdb
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplicationRepository\obj\Debug\WebApplication.Repository.csproj.AssemblyReference.cache
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplicationRepository\obj\Debug\WebApplication.Repository.csproj.CoreCompileInputs.cache
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplicationRepository\obj\Debug\WebApplication.Repository.csproj.CopyComplete
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplicationRepository\obj\Debug\WebApplicationRepository.dll
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplicationRepository\obj\Debug\WebApplicationRepository.pdb

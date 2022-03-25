@@ -39,5 +39,21 @@ namespace WebApplication.Repository
             }
 
         }
+
+        public void AddNewProduct(ProductModel newProduct)
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlDataAdapter adapter = new SqlDataAdapter();
+
+            using (connection)
+            {
+                connection.Open();
+                string newProductCommand = $"INSERT INTO Product(Title, Stock, CountryOfOrigin) VALUES('{newProduct.Name}', { newProduct.Stock}, '{newProduct.CountryOfOrigin}');";
+                adapter.InsertCommand= new SqlCommand(newProductCommand, connection);
+               adapter.InsertCommand.ExecuteNonQuery();
+               
+            }
+
+        }
     }
 }

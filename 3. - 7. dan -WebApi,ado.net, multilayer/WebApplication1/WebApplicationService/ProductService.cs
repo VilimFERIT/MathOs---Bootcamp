@@ -14,6 +14,13 @@ namespace WebApplication.Service
         {
             ProductRepository repository = new ProductRepository();
             return repository.GetProductById(id);
+
+
+        }
+    public void InsertProduct(ProductModel product)
+        {
+            ProductRepository repository= new ProductRepository();
+            repository.AddNewProduct(product);
         }
     }
 }
