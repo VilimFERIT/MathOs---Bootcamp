@@ -189,6 +189,25 @@ namespace WebApplication1.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, "Product has been added to the database!");
             }
 
+        [HttpPost]
+        [Route("webapi/insertproductadapter")]
+
+        public HttpResponseMessage InserNewProductWithAdapter(Product product)
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            SqlConnection connection = new SqlConnection(connectionString);
+            using(connection)
+            { 
+                connection.Open();
+                string newProductCommand = $"INSERT INTO Product (Price, Title, Stock, CountryOfOrigin) VALUES ('{product.Price}','{product.Name}', {product.Stock}, '{product.CountryOfOrigin}');";
+            adapter.InsertCommand= new SqlCommand(newProductCommand, connection);
+
+                adapter.InsertCommand.ExecuteNonQuery();
+                connection.Close();
+
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, "You have inserted a new product!");
+        }
         
 
         // PUT: api/Product/5
