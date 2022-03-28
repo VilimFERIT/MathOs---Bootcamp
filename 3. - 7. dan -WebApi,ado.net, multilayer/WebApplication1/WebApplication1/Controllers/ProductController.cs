@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Data;
 using WebApplication.Service;
 using WebApplication.Model;
+using System.Threading.Tasks;
 
 namespace WebApplication1.Controllers
 {
@@ -20,15 +21,18 @@ namespace WebApplication1.Controllers
 
         public static string connectionString = @"Data Source=DESKTOP-KKL4FN6\SQLEXPRESS;Initial Catalog = vjezba; Integrated Security = True";
 
+        //GET naredbe 
+
+        //get - multilayer
         [HttpGet]
         [Route("webapi/getbyidmultilayer")]
 
-        public HttpResponseMessage GetProduct(Guid id)
+        public async Task<HttpResponseMessage> GetProductAsync(Guid id)
         {
             ProductService productService = new ProductService();
             List<ProductModel> modelProducts = new List<ProductModel>();
 
-            modelProducts=productService.GetProduct(id);
+            modelProducts = await productService.GetProductAsync(id);
 
             if(modelProducts==null)
             {
@@ -43,20 +47,19 @@ namespace WebApplication1.Controllers
         }
 
 
-
-
+        //get - webapi
         [HttpGet]
         [Route("webapi/getsqlproduct")]
-        public HttpResponseMessage GetTableContent()
+        public async Task<HttpResponseMessage> GetTableContentAsync()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand("SELECT * FROM Product", connection);
 
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
+                await connection.OpenAsync();
+                SqlDataReader reader = await command.ExecuteReaderAsync();
 
-                while (reader.Read())
+                while (await reader.ReadAsync())
                 {
                     Product product = new Product();
                     product.Price = reader.GetDecimal(0);
@@ -73,16 +76,18 @@ namespace WebApplication1.Controllers
 
         }
 
+        //get - webapi
+
         [HttpGet]
         [Route("webapi/getsqlhaving")]
 
-        public HttpResponseMessage GetProductPriceOverX(decimal price)
+        public async Task<HttpResponseMessage> GetProductPriceOverXAsync(decimal price)
         {
             SqlConnection connection = new SqlConnection(connectionString);
             using (SqlCommand command = new SqlCommand($"SELECT * FROM Product GROUP BY Price HAVING Price > {price}'", connection))
             {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
+                await connection.OpenAsync();
+                SqlDataReader reader = await command.ExecuteReaderAsync();
             }
             return Request.CreateResponse(HttpStatusCode.OK, sqlProducts);
 
@@ -90,19 +95,20 @@ namespace WebApplication1.Controllers
 
         }
 
+        //get - webapi
         [HttpGet]
         [Route("webapi/getsqlproductbyid")]
 
-        public HttpResponseMessage GetProductById(Guid id)
+        public async Task<HttpResponseMessage> GetProductByIdAsync(Guid id)
         {
             SqlConnection connection = new SqlConnection(connectionString);
             using (SqlCommand command = new SqlCommand($"SELECT * FROM Product WHERE Id ='{id}'", connection))
             {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
+                await connection.OpenAsync();
+                SqlDataReader reader = await command.ExecuteReaderAsync();
 
 
-                while (reader.Read())
+                while (await reader.ReadAsync())
                 {
                     Product product = new Product();
                     product.Price = reader.GetDecimal(0);
@@ -117,11 +123,13 @@ namespace WebApplication1.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, sqlProducts);
         }
 
+        //get - webapi
+
         // GET: api/Product
         [HttpGet]
 
         [Route("webapi/getproduct")]
-        public HttpResponseMessage FindProductInfo( Guid productId)
+        public HttpResponseMessage FindProductInfo(Guid productId)
         {
             Product foundProduct = products.Find(product => product.Id == productId);
             if (productId == foundProduct.Id)
@@ -134,16 +142,17 @@ namespace WebApplication1.Controllers
             }
         }
 
+        //get - webapi
         // GET: api/Product/5
         [HttpGet]
 
         [Route("products/under50")]
-        public HttpResponseMessage FindProductsUnder50Euro()
+        public HttpResponseMessage FindProductsUnderXEuro(decimal price)
         {
             List<Product> cheapProducts = new List<Product>();
-            foreach(Product product in products)
+            foreach (Product product in products)
             {
-                if(product.Price<50)
+                if (product.Price < price)
                 {
                     cheapProducts.Add(product);
                 }
@@ -151,22 +160,22 @@ namespace WebApplication1.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, cheapProducts);
         }
 
-        // POST: api/Prnoduct
+        // POST naredbe
 
-        //
+        //post - multilayer
 
         [HttpPost]
         [Route("webapi/insertproductmla")]
 
         //ovdje dobijem error da ne mogu pretvoriti varchar u numeric kada pokusam upisati cijenu(decimal)
         //inace uspije ubaciti novi product
-        public HttpResponseMessage InsertProductMla (ProductModel product)
+        public async Task<HttpResponseMessage> InsertProductMlaAsync (ProductModel product)
         {
             ProductService service = new ProductService();
 
             if (product != null)
             {
-                service.InsertProduct(product);
+                await service.InsertProductAsync(product);
                 return Request.CreateResponse(HttpStatusCode.OK, $"A new product with the name {product.Name} has been inserted!");
             }
             else
@@ -176,13 +185,10 @@ namespace WebApplication1.Controllers
 
         }
 
-
+        //post - data adapter
         [HttpPost]
 
         [Route("webapi/populatedataset")]
-
-        //primjer data adaptera
-        //preko data adaptera mozemo vidjeti sve podatke u tablici
         public HttpResponseMessage PopulateDataset()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -194,15 +200,17 @@ namespace WebApplication1.Controllers
                 return Request.CreateResponse(HttpStatusCode.OK, products.Rows);
                 // mozes returnat products.Rows
             }
-       
-         }
+
+        }
+
+        //post - webapi
 
         [HttpPost]
 
         [Route("product/addproduct")]
         public HttpResponseMessage AddNewProduct(Product newProduct)
         {
-            if(newProduct!=null)
+            if (newProduct != null)
             {
                 products.Add(newProduct);
                 return Request.CreateResponse(HttpStatusCode.OK, $"A new product {newProduct.Name} has been added");
@@ -215,38 +223,40 @@ namespace WebApplication1.Controllers
 
         }
 
+        //post - webapi
+
         [HttpPost]
 
-        
         [Route("webapi/insertproductsql")]
 
-        public HttpResponseMessage InsertProduct(Product product)
+        public async Task<HttpResponseMessage> InsertProductAsync(Product product)
 
         {
             SqlConnection connection = new SqlConnection(connectionString);
             using (SqlCommand command = new SqlCommand($"INSERT INTO Product (Price, Title, Stock, CountryOfOrigin) VALUES ('{product.Price}','{product.Name}', {product.Stock}, '{product.CountryOfOrigin}');", connection))
             {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
+                await connection.OpenAsync();
+                SqlDataReader reader = await command.ExecuteReaderAsync();
 
             }
             return Request.CreateResponse(HttpStatusCode.OK, "Product has been added to the database!");
             }
 
+        //post - adapter
         [HttpPost]
         [Route("webapi/insertproductadapter")]
 
-        public HttpResponseMessage InserNewProductWithAdapter(Product product)
+        public async Task<HttpResponseMessage> InsertNewProductWithAdapterAsync(Product product)
         {
             SqlDataAdapter adapter = new SqlDataAdapter();
             SqlConnection connection = new SqlConnection(connectionString);
             using(connection)
             { 
-                connection.Open();
+                await connection.OpenAsync();
                 string newProductCommand = $"INSERT INTO Product (Price, Title, Stock, CountryOfOrigin) VALUES ('{product.Price}','{product.Name}', {product.Stock}, '{product.CountryOfOrigin}');";
             adapter.InsertCommand= new SqlCommand(newProductCommand, connection);
 
-                adapter.InsertCommand.ExecuteNonQuery();
+                await adapter.InsertCommand.ExecuteNonQueryAsync();
                 connection.Close();
 
             }
@@ -254,40 +264,29 @@ namespace WebApplication1.Controllers
         }
         
 
-        // PUT: api/Product/5
-        //executenonquery
+        // PUT naredbe
 
+        //put - multilayer
         [HttpPut]
         [Route("webapi/updatePriceMla")]
 
-        public HttpResponseMessage UpdatePriceMla (Guid productId, decimal newPrice)
+        public async Task<HttpResponseMessage> UpdatePriceMlaAsync (Guid productId, decimal newPrice)
         {
         ProductService productService = new ProductService();
                 
-        productService.UpdatePriceMla(productId, newPrice);
+        await productService.UpdatePriceMlaAsync(productId, newPrice);
 
             return Request.CreateResponse(HttpStatusCode.OK, "The price has been updated!");
 
         }
 
 
-        [HttpPut]
 
+        [HttpPut]
         [Route("product/sqlupdateprice")]
 
-        public HttpResponseMessage UpdatePrice(Guid id)
+        public async Task<HttpResponseMessage> UpdatePriceAsync(Guid id, decimal newPrice)
         {
-
-            //SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-KKL4FN6\SQLEXPRESS;Initial Catalog = vjezba; Integrated Security = True");
-            //preko dataadaptera
-            //using (SqlCommand command = new SqlCommand($"UPDATE Product SET Price='89.99' WHERE Id ='{id}'", connection))
-            //{
-            //    connection.Open();
-            //    SqlDataAdapter adapter = new SqlDataAdapter(command, connection);
-            //    //SqlDataReader reader = command.ExecuteReader();
-            //}
-
-            //return Request.CreateResponse(HttpStatusCode.OK, "The price has been updated!");
 
             string command = $"SELECT * FROM Product";
             SqlConnection connection = new SqlConnection(connectionString);
@@ -301,10 +300,10 @@ namespace WebApplication1.Controllers
 
             dataTable.Rows[0]["Title"] = "Headphones";
 
-            string sql = $"UPDATE Product SET Price='89.99' WHERE Id ='{id}'";
+            string sql = $"UPDATE Product SET Price='{newPrice}' WHERE Id ='{id}'";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
 
-            connection.Open();
+            await connection.OpenAsync();
             SqlCommand cmd = new SqlCommand(sql, connection);
             sqlDataAdapter.UpdateCommand=cmd;
             adapter.Update(ds, "Product");
@@ -313,19 +312,19 @@ namespace WebApplication1.Controllers
 
 
         }
+        //webapi - webapi
 
         [HttpPut]
-
         [Route("product/updateprice")]
         public HttpResponseMessage UpdateProductPrice(Guid productId, decimal newPrice)
         {
             Product updatedProduct = products.Find(product => product.Id == productId);
-            if (productId==updatedProduct.Id)
+            if (productId == updatedProduct.Id)
             {
-                decimal oldPrice=updatedProduct.Price;
+                decimal oldPrice = updatedProduct.Price;
                 updatedProduct.Price = newPrice;
                 return Request.CreateResponse(HttpStatusCode.OK, $"The product price has been updated from {oldPrice} to {newPrice}");
-               
+
             }
             else
             {
@@ -334,7 +333,8 @@ namespace WebApplication1.Controllers
             }
         }
 
-        // DELETE: api/Product/5
+        
+        // DELETE naredbe
         public HttpResponseMessage Delete(Guid productId)
         {
             Product soonToBeDeletedProduct = products.Find(product => product.Id == productId);
@@ -353,9 +353,9 @@ namespace WebApplication1.Controllers
 
         [HttpDelete]
 
-     [Route("webapi/deletesql")] //?id=725018C6-2B1B-41F8-A3E8-17A55C709535
+        [Route("webapi/deletesql")]
 
-     //ne mozes obrisati tablice koje su povezane s drugom tablicom s foreign key osim sa cascadeom
+        //ne mozes obrisati tablice koje su povezane s drugom tablicom s foreign key osim sa cascadeom
         public HttpResponseMessage DeleteSql(Guid id)
         {
             SqlConnection connection = new SqlConnection(connectionString);

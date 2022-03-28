@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace WebApplication1.Controllers
@@ -14,7 +15,6 @@ namespace WebApplication1.Controllers
         //nastavak koda na treci dan (api)
         // GET api/values
 
-        //napravi sve datareadere i adaptere za ovaj kontroler
         [HttpGet]
 
         [Route("webapi/countemployees")]
@@ -53,7 +53,7 @@ namespace WebApplication1.Controllers
         [HttpPost]
 
         [Route("webapi/newemployee")]
-        public HttpResponseMessage InsertNewEmployee(Employee newEmployee)  //stvara novog zaposlenika te ga sprema u listu
+        public async Task<HttpResponseMessage> InsertNewEmployee(Employee newEmployee)  //stvara novog zaposlenika te ga sprema u listu
         {
             employees.Add(newEmployee);
             Employee employee = new Employee();

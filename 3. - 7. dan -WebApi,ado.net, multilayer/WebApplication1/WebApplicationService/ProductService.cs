@@ -10,23 +10,23 @@ namespace WebApplication.Service
 {
     public class ProductService
     {
-    public List<ProductModel> GetProduct(Guid id)
+    public async Task<List<ProductModel>> GetProductAsync(Guid id)
         {
             ProductRepository repository = new ProductRepository();
-            return repository.GetProductById(id);
+            return await repository.GetProductByIdAsync(id);
 
 
         }
-    public void InsertProduct(ProductModel product)
+    public async Task InsertProductAsync(ProductModel product)
         {
             ProductRepository repository= new ProductRepository();
-            repository.AddNewProduct(product);
+            await repository.AddNewProductAsync(product);
         }
 
-    public void UpdatePriceMla(Guid productId, decimal newPrice)
+    public async Task UpdatePriceMlaAsync(Guid productId, decimal newPrice)
         {
             ProductRepository productRepository= new ProductRepository();
-            productRepository.UpdateProductPrice(productId,newPrice);
+            await productRepository.UpdateProductPriceAsync(productId,newPrice);
         }
     }
 }

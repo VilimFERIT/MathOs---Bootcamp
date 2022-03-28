@@ -13,19 +13,19 @@ namespace WebApplication.Repository
       
         public static string connectionString = @"Data Source=DESKTOP-KKL4FN6\SQLEXPRESS;Initial Catalog = vjezba; Integrated Security = True";
 
-
-        public List<ProductModel> GetProductById(Guid id)
+        //mla i async
+        public async Task<List<ProductModel>> GetProductByIdAsync(Guid id)
         {
             
             SqlConnection connection = new SqlConnection(connectionString);
 
             using (SqlCommand command = new SqlCommand($"SELECT * FROM Product WHERE Id ='{id}'", connection))
             {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
+                await connection.OpenAsync();
+                SqlDataReader reader = await command.ExecuteReaderAsync();
                 List<ProductModel> products = new List<ProductModel>();
 
-                while (reader.Read())
+                while (await reader.ReadAsync())
                 {
                     ProductModel product = new ProductModel();
                     product.Price = reader.GetDecimal(0);
@@ -40,34 +40,40 @@ namespace WebApplication.Repository
 
         }
 
-        public void AddNewProduct(ProductModel newProduct)
+        public async Task AddNewProductAsync(ProductModel newProduct)
         {
             SqlConnection connection = new SqlConnection(connectionString);
             SqlDataAdapter adapter = new SqlDataAdapter();
 
             using (connection)
             {
-                connection.Open();
+                await connection.OpenAsync();
                 string newProductCommand = $"INSERT INTO Product(Title, Stock, CountryOfOrigin) VALUES('{newProduct.Name}', { newProduct.Stock}, '{newProduct.CountryOfOrigin}');";
                 adapter.InsertCommand= new SqlCommand(newProductCommand, connection);
-               adapter.InsertCommand.ExecuteNonQuery();
+               await adapter.InsertCommand.ExecuteNonQueryAsync();
                
             }
 
         }
 
-        public void UpdateProductPrice(Guid productId, decimal newPrice)
+        public async Task UpdateProductPriceAsync(Guid productId, decimal newPrice)
         {
             SqlConnection connection = new SqlConnection(connectionString);
             SqlDataAdapter adapter = new SqlDataAdapter();
+            SqlCommand command = connection.CreateCommand();
+
             using (connection)
             {
-                connection.Open();
-                string updateProductPriceCommand=$"UPDATE Product SET Price = '{newPrice}' WHERE Id = '{productId}'";
+                await connection.OpenAsync();
+                string updateProductPriceCommand=$"UPDATE Product SET Price = @NewPrice WHERE Id = '{productId}'";
+
                adapter.InsertCommand= new SqlCommand(updateProductPriceCommand, connection);
-                adapter.InsertCommand.ExecuteNonQuery();
-                
+                adapter.InsertCommand.Parameters.Add("@NewPrice",System.Data.SqlDbType.Decimal).Value = newPrice;
+                await adapter.InsertCommand.ExecuteNonQueryAsync();
+             //   
             }
         }
+
+
     }
 }
