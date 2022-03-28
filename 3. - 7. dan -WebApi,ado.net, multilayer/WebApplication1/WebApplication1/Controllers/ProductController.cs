@@ -335,17 +335,17 @@ namespace WebApplication1.Controllers
 
         
         // DELETE naredbe
-        public HttpResponseMessage Delete(Guid productId)
+        public Task<HttpResponseMessage> Delete(Guid productId)
         {
             Product soonToBeDeletedProduct = products.Find(product => product.Id == productId);
             if (productId == soonToBeDeletedProduct.Id)
             {
                 products.Remove(soonToBeDeletedProduct);
-                return Request.CreateResponse(HttpStatusCode.OK, $"The product with the id {productId} has been deleted!");
+                return Task.FromResult(Request.CreateResponse(HttpStatusCode.OK, $"The product with the id {productId} has been deleted!"));
             }
             else
             {
-                return Request.CreateResponse(HttpStatusCode.NotFound, $"The item with the id{productId} is not in our stock!");
+                return Task.FromResult(Request.CreateResponse(HttpStatusCode.NotFound, $"The item with the id{productId} is not in our stock!"));
             }
 
 
@@ -356,13 +356,13 @@ namespace WebApplication1.Controllers
         [Route("webapi/deletesql")]
 
         //ne mozes obrisati tablice koje su povezane s drugom tablicom s foreign key osim sa cascadeom
-        public HttpResponseMessage DeleteSql(Guid id)
+        public async Task<HttpResponseMessage> DeleteSqlAsync(Guid id)
         {
             SqlConnection connection = new SqlConnection(connectionString);
             using (SqlCommand command = new SqlCommand($"DELETE FROM Product WHERE Id ='{id}'", connection))
             {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
+                await connection.OpenAsync();
+                SqlDataReader reader = await command.ExecuteReaderAsync();
                 if (reader.Read())
                     return Request.CreateResponse(HttpStatusCode.OK, "The item has been deleted!");
                 else

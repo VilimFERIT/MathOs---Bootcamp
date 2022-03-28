@@ -65,7 +65,7 @@ namespace WebApplication1.Controllers
             employee.StartingDates = newStartingDates;
             return Request.CreateResponse(HttpStatusCode.OK, $"A new employee {employee.FirstName} {employee.LastName} with Id#{Convert.ToString(employee.Id)} has been added to the database on {employee.StartingDates.Last()}!");
             }
-            
+
 
 
         // PUT api/values/5
@@ -83,7 +83,7 @@ namespace WebApplication1.Controllers
             else
             {
                 foundEmployee.EmploymentStatus = !foundEmployee.EmploymentStatus;
-                
+
                 if (foundEmployee.EmploymentStatus == false)
                 {
                     newEndingDates.Add(DateTime.Now);
