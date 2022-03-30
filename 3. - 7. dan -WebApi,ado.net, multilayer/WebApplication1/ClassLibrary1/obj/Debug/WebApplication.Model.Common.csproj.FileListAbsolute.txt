@@ -1,0 +1,6 @@
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\ClassLibrary1\obj\Debug\WebApplication.Model.Common.csproj.AssemblyReference.cache
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\ClassLibrary1\obj\Debug\WebApplication.Model.Common.csproj.CoreCompileInputs.cache
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\ClassLibrary1\obj\Debug\ClassLibrary1.pdb

@@ -16,3 +16,9 @@ C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multila
 C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplicationRepository\obj\Debug\WebApplication.Repository.csproj.CopyComplete
 C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplicationRepository\obj\Debug\WebApplicationRepository.dll
 C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplicationRepository\obj\Debug\WebApplicationRepository.pdb
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplicationRepository\bin\Debug\WebApplication.Common.dll
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplicationRepository\bin\Debug\WebApplication.Common.pdb
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplicationRepository\bin\Debug\WebApplication.Repository.Common.dll
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplicationRepository\bin\Debug\WebApplication.Repository.Common.pdb
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplicationRepository\bin\Debug\ClassLibrary1.dll
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplicationRepository\bin\Debug\ClassLibrary1.pdb

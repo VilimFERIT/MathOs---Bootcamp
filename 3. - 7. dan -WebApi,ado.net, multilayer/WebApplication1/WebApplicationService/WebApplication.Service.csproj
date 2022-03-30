@@ -41,10 +41,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmployeeService.cs" />
     <Compile Include="ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary1\WebApplication.Model.Common.csproj">
+      <Project>{79B3F9EC-D0A1-45FA-BB8B-28169E68878F}</Project>
+      <Name>WebApplication.Model.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApplication.Common\WebApplication.Common.csproj">
+      <Project>{72326BA9-00C6-41C2-95F1-D7706BC771EA}</Project>
+      <Name>WebApplication.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApplication.Repository.Common\WebApplication.Repository.Common.csproj">
+      <Project>{B064922B-63A5-44EA-9378-806F5F44D20A}</Project>
+      <Name>WebApplication.Repository.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApplication.Service.Common\WebApplication.Service.Common.csproj">
+      <Project>{4D5E2C5E-FC13-4EE9-A162-292DE2B541ED}</Project>
+      <Name>WebApplication.Service.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebApplicationModel\WebApplication.Model.csproj">
       <Project>{7f593f99-c233-44cc-98ba-981e5e02e461}</Project>
       <Name>WebApplication.Model</Name>

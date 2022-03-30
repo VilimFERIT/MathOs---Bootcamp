@@ -1,0 +1,11 @@
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplication.Repository.Common\bin\Debug\WebApplication.Repository.Common.dll
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplication.Repository.Common\bin\Debug\WebApplication.Repository.Common.pdb
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplication.Repository.Common\bin\Debug\WebApplicationModel.dll
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplication.Repository.Common\bin\Debug\WebApplicationModel.pdb
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplication.Repository.Common\obj\Debug\WebApplication.Repository.Common.csproj.AssemblyReference.cache
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplication.Repository.Common\obj\Debug\WebApplication.Repository.Common.csproj.CoreCompileInputs.cache
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplication.Repository.Common\obj\Debug\WebApplication.Repository.Common.csproj.CopyComplete
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplication.Repository.Common\obj\Debug\WebApplication.Repository.Common.dll
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplication.Repository.Common\obj\Debug\WebApplication.Repository.Common.pdb
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplication.Repository.Common\bin\Debug\ClassLibrary1.dll
+C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplication.Repository.Common\bin\Debug\ClassLibrary1.pdb

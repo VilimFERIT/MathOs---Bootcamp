@@ -9,32 +9,43 @@ using System.Data;
 using WebApplication.Service;
 using WebApplication.Model;
 using System.Threading.Tasks;
+using System.Web.Http.Controllers;
+using WebApplication.Common;
+using WebApplication.Service.Common;
+
 
 namespace WebApplication1.Controllers
 {
     public class ProductController : ApiController
     {
-     
-
         static List<Product> products = new List<Product>();
         static List<Product> sqlProducts = new List<Product>();
 
         public static string connectionString = @"Data Source=DESKTOP-KKL4FN6\SQLEXPRESS;Initial Catalog = vjezba; Integrated Security = True";
 
+        protected IProductService Service { get; private set; }
+        public ProductController(IProductService service)
+        {
+            Service = service;
+
+        }
+        public ProductController()
+        { 
+        }
+
         //GET naredbe 
 
-        //get - multilayer
+        //get - multilayer - dependancy injection
         [HttpGet]
         [Route("webapi/getbyidmultilayer")]
 
         public async Task<HttpResponseMessage> GetProductAsync(Guid id)
         {
-            ProductService productService = new ProductService();
-            List<ProductModel> modelProducts = new List<ProductModel>();
+            //ProductService productService = new ProductService();
+            
+            var modelProducts = await Service.GetProductAsync(id);
 
-            modelProducts = await productService.GetProductAsync(id);
-
-            if(modelProducts==null)
+            if (modelProducts == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
             }
@@ -45,6 +56,24 @@ namespace WebApplication1.Controllers
 
 
         }
+
+        [HttpGet]
+        [Route("webapi/getallmultilayer")]
+
+        public async Task<HttpResponseMessage> GetAllProducts()
+        {
+            var products = await Service.GetAllProductsServiceAsync();
+            if (products == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, products);
+            }
+
+        }
+   
 
 
         //get - webapi
@@ -162,20 +191,22 @@ namespace WebApplication1.Controllers
 
         // POST naredbe
 
-        //post - multilayer
+        //post - multilayer - dependancy injection
 
         [HttpPost]
         [Route("webapi/insertproductmla")]
 
         //ovdje dobijem error da ne mogu pretvoriti varchar u numeric kada pokusam upisati cijenu(decimal)
         //inace uspije ubaciti novi product
+        //rjeseno, pogledaj put tj. update price metodu
+        
         public async Task<HttpResponseMessage> InsertProductMlaAsync (ProductModel product)
         {
-            ProductService service = new ProductService();
+           
 
             if (product != null)
             {
-                await service.InsertProductAsync(product);
+                await Service.InsertProductAsync(product);
                 return Request.CreateResponse(HttpStatusCode.OK, $"A new product with the name {product.Name} has been inserted!");
             }
             else
@@ -264,6 +295,8 @@ namespace WebApplication1.Controllers
         }
         
 
+
+        //update - dependancy injection
         // PUT naredbe
 
         //put - multilayer
@@ -272,14 +305,13 @@ namespace WebApplication1.Controllers
 
         public async Task<HttpResponseMessage> UpdatePriceMlaAsync (Guid productId, decimal newPrice)
         {
-        ProductService productService = new ProductService();
+      
                 
-        await productService.UpdatePriceMlaAsync(productId, newPrice);
+        await Service.UpdatePriceMlaAsync(productId, newPrice);
 
             return Request.CreateResponse(HttpStatusCode.OK, "The price has been updated!");
 
         }
-
 
 
         [HttpPut]
@@ -376,5 +408,27 @@ namespace WebApplication1.Controllers
 
 
 
+        //delete - dependancy injection
+        [HttpDelete]
+
+        [Route("webapi/deletesqlmla")]
+
+        public async Task<HttpResponseMessage> DeleteAsyncDi(Guid id)
+        {
+            await Service.DeleteProductAsync(id);
+
+            return Request.CreateResponse(HttpStatusCode.OK, "Product has been deleted");
+        }
+
+    }
+    public class ProductRest
+    {
+        public decimal Price { get; set; }
+
+        public string Name { get; set; }
+
+        public Guid Id { get; set; }
+
+        public int Stock { get; set; }
     }
 }

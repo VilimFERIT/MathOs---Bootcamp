@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Autofac.Integration.WebApi.Owin</name>
+    </assembly>
+    <members>
+        <member name="T:Owin.AutofacWebApiAppBuilderExtensions">
+            <summary>
+            Extension methods for configuring the OWIN pipeline.
+            </summary>
+        </member>
+        <member name="M:Owin.AutofacWebApiAppBuilderExtensions.UseAutofacWebApi(Owin.IAppBuilder,System.Web.Http.HttpConfiguration)">
+            <summary>
+            Extends the Autofac lifetime scope added from the OWIN pipeline through to the Web API dependency scope.
+            </summary>
+            <param name="app">The application builder.</param>
+            <param name="configuration">The HTTP server configuration.</param>
+            <returns>The application builder for continued configuration.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="app" /> or <paramref name="configuration" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="T:Autofac.Integration.WebApi.Owin.DependencyScopeHandler">
+            <summary>
+            Delegating handler that manages coordinating the OWIN request lifetime with the Web API request lifetime.
+            </summary>
+        </member>
+        <member name="M:Autofac.Integration.WebApi.Owin.DependencyScopeHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">
+            <summary>
+            Assigns the OWIN request lifetime scope to the Web API request lifetime scope.
+            </summary>
+            <param name="request">The HTTP request message to send to the server.</param>
+            <param name="cancellationToken">A cancellation token to cancel the operation.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+        </member>
+    </members>
+</doc>

@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WebApplication.Common;
 
 namespace WebApplication1.Controllers
 {
-    public class Product
+    public class Product: IProduct
     {
         public decimal Price { get; set; }
 
