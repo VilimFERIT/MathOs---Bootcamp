@@ -41,7 +41,8 @@ namespace WebApplication.Service
         public async Task<List<IProductModel>> GetAllProductsServiceAsync()
         {
             //ProductRepository productRepository = new ProductRepository();
-            return await Repository.GetAllProductsAsync();
+            return await Repository.GetAllProductsAsync(); 
+           
         }
 
         public async Task DeleteProductAsync(Guid id)

@@ -84,12 +84,13 @@ namespace WebApplication.Repository
 
         {
             SqlConnection connection = new SqlConnection(connectionString);
-
-            using (SqlCommand command = new SqlCommand("SELECT * FROM Product", connection))
+            using (connection)
             {
-                await connection.OpenAsync();
-                SqlDataReader reader = await command.ExecuteReaderAsync();
-                List<IProductModel> products = new List<IProductModel>();
+                using (SqlCommand command = new SqlCommand("SELECT * FROM Product", connection))
+                {
+                    await connection.OpenAsync();
+                    SqlDataReader reader = await command.ExecuteReaderAsync();
+                    List<IProductModel> products = new List<IProductModel>();
                     while (await reader.ReadAsync())
                     {
                         ProductModel product = new ProductModel();
@@ -101,8 +102,9 @@ namespace WebApplication.Repository
                         products.Add(product);
                     }
                     return products;
-                
-                
+
+
+                }
             }
         }
 
