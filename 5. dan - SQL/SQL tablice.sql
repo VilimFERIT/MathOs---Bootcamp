@@ -89,6 +89,7 @@ SELECT* FROM Employee WHERE Gender='M';
 
 UPDATE Employee SET EmploymentStatus = 'TRUE' WHERE Id='2';
 
+UPDATE Product SET CountryOfOrigin = 'jsdhgi' WHERE Id='B2FFCB87-8962-4B03-9152-335204BBE6E5';
 DELETE FROM Employee WHERE	EmploymentStatus = 'FALSE';
 
 SELECT DISTINCT LastName FROM Employee ORDER BY LastName ASC;

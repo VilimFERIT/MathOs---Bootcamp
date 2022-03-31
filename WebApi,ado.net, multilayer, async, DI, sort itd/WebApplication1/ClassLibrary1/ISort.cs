@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebApplication.Common
+namespace ClassLibrary1
 {
-    public class Sort
+    public interface ISort
     {
-        string OrderBy;
+        string OrderBy { get; set; }
 
-        string Order;
+        string Order { get; set; }
     }
 }

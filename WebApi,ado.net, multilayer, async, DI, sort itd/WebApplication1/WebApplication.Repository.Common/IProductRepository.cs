@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibrary1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,8 @@ namespace WebApplication.Repository.Common
             Task UpdateProductPriceAsync(Guid productId, decimal newPrice);
 
             Task<List<IProductModel>> GetAllProductsAsync();
+
+            Task<List<IProductModel>> GetProductModelsAsyncSortPageFilter(ISort sort, IPage page, IFilter filter);
 
             Task DeleteProductAsync(Guid id);
     }

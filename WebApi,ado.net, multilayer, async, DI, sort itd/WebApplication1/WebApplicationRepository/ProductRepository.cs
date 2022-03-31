@@ -1,4 +1,5 @@
 ﻿
+using ClassLibrary1;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -80,13 +81,50 @@ namespace WebApplication.Repository
         }
 
         public async Task<List<IProductModel>> GetAllProductsAsync()
-
-
         {
             SqlConnection connection = new SqlConnection(connectionString);
             using (connection)
             {
                 using (SqlCommand command = new SqlCommand("SELECT * FROM Product", connection))
+                {
+                    await connection.OpenAsync();
+                    SqlDataReader reader = await command.ExecuteReaderAsync();
+                    List<IProductModel> products = new List<IProductModel>();
+                    while (await reader.ReadAsync())
+                    {
+                        ProductModel product = new ProductModel();
+                        product.Price = reader.GetDecimal(0);
+                        product.Name = reader.GetString(1);
+                        product.Id = reader.GetGuid(2);
+                        product.Stock = reader.GetInt32(3);
+                        product.CountryOfOrigin = reader.GetString(4);
+                        products.Add(product);
+                    }
+                    return products;
+
+
+                }
+            }
+        }
+
+        public async Task<List<IProductModel>> GetProductModelsAsyncSortPageFilter(ISort sort, IPage page, IFilter filter)
+        {
+            StringBuilder query = new StringBuilder("SELECT * FROM Product ");
+
+            if(sort != null)
+            {
+                query.Append($"ORDER BY {sort.OrderBy} {sort.Order} ");
+            }
+
+            if (page.Index > 0 && page.Length > 0)
+            {
+                query.Append($"OFFSET ({page.Index} - 1) * {page.Length} ROWS FETCH NEXT {page.Index} ROWS ONLY ");
+            }
+
+            SqlConnection connection = new SqlConnection(connectionString);
+            using (connection)
+            {
+                using (SqlCommand command = new SqlCommand(query.ToString(), connection))
                 {
                     await connection.OpenAsync();
                     SqlDataReader reader = await command.ExecuteReaderAsync();

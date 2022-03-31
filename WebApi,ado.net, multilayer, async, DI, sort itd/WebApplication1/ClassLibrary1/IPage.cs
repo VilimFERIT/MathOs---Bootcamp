@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebApplication.Common
+namespace ClassLibrary1
 {
-    public class Filter
+    public interface IPage
     {
+        int Index { get; set; }
+
+        int Length { get; set; }
     }
 }

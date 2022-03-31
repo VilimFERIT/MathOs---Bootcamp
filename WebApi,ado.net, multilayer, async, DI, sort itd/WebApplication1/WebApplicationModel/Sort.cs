@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebApplication.Common
+namespace WebApplicationModel
 {
-    public class Page
+    public class Sort
     {
+        string OrderBy { get; set; }
+
+        string Order { get; set; }
     }
 }

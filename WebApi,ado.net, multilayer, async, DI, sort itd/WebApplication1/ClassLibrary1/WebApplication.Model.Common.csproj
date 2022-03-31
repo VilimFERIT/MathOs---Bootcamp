@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{72326BA9-00C6-41C2-95F1-D7706BC771EA}</ProjectGuid>
+    <ProjectGuid>{79B3F9EC-D0A1-45FA-BB8B-28169E68878F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebApplication.Common</RootNamespace>
-    <AssemblyName>WebApplication.Common</AssemblyName>
+    <RootNamespace>ClassLibrary1</RootNamespace>
+    <AssemblyName>ClassLibrary1</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,18 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Filter.cs" />
-    <Compile Include="IEmployee.cs" />
-    <Compile Include="Page.cs" />
-    <Compile Include="ProductCommon.cs" />
+    <Compile Include="IEmployeeModel.cs" />
+    <Compile Include="IFilter.cs" />
+    <Compile Include="IPage.cs" />
+    <Compile Include="IProductModel.cs" />
+    <Compile Include="ISort.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sort.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WebApplicationModel\WebApplication.Model.csproj">
-      <Project>{7F593F99-C233-44CC-98BA-981E5E02E461}</Project>
-      <Name>WebApplication.Model</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
