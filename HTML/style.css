@@ -1,0 +1,20 @@
+p{
+    background-color:antiquewhite;
+}
+
+.firstClass
+{
+    color: blueviolet;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:160%;
+    text-align: center;
+}
+
+.secondClass{
+font-size: 80px;
+text-align: center;
+}
+
+.thirdClass{
+text-align: center;
+}
