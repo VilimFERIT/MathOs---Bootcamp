@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="project.js">
+    document.getElementById("paragraph").innerHTML = x+y;
+  </script>
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +36,30 @@
       <td>440 eur</td>
     </tr>
   </table>
+
+<hr>
+
+<form id="form" onsubmit="return false;">
+  <input type="text" id="userInput" />
+  <input type="submit" onclick="alertName();" />
+</form>
+
+<hr>
+
+<p id="1">You cant leave the bottom one empty!</p>
+<button type="button"
+onclick="document.getElementById('1').style.color = 'red'">
+Promjeni boju</button>
+
+<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+  <input type="text" name="fname">
+  <input type="submit" value="Submit">
+  </form>
   
+
+<p id="paragraph"></p>
+
+
   
 </body>
 </html>
