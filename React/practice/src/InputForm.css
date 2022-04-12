@@ -1,0 +1,38 @@
+form {
+
+    margin: 0 auto;
+    width: 500px;
+    padding: 1em;
+    border: 1px solid rgb(97, 98, 190);
+    border-radius: 3em;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  form li + li {
+    margin-top: 1em;
+  }
+  
+  
+
+  label {
+    display: inline-block;
+    width: 90px;
+    text-align: left;
+    margin-right: 20px;
+
+  }
+  
+  input,
+  textarea {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    width: 300px; 
+  }
+  
+  textarea {
+    vertical-align: top; 
+    height: 5em;
+  }
+  
