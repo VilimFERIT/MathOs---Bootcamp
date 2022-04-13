@@ -1,13 +1,25 @@
 import { render } from "react-dom";
 import React from 'react';
+import { useState, useEffect } from 'react';
  
-class Clock extends React.Component{
-      render(){
-        return (<div>
-              <h1>It is {new Date().toLocaleTimeString()}.</h1>
-            </div>);
+function Clock(){
+      const[date,setDate]=useState(new Date());
+      
+      function updateClock()
+      {
+            setDate(new Date());
       }
-  }
+
+      useEffect(() => {
+            const timerId = setInterval(updateClock, 1000);});
+      
+            return (
+        <h1>
+          {date.toLocaleTimeString()}
+        </h1>
+      );
+    }
+    
+    export default Clock;
           
 
-  export default Clock;
