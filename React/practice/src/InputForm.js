@@ -20,7 +20,9 @@ function InputForm() {
     message:"",
   })
 
-  const listOfContactInfo = contactInfo.map(contacts =><p>{contacts.name} {contacts.email} {contacts.message}</p>);
+  const listOfContactInfo = contacts.map(contact =><p>{contact.name} {contact.email} {contact.message}</p>);
+
+  
 
   const handleNameInputChange = (event) => {
     setContactInfo((values) => (
@@ -74,12 +76,21 @@ function InputForm() {
  <input type="submit" onClick={handleSubmit}></input>
 
 
+
+
 <p name="info"></p>
 </form>
 
+<pre>
+   {listOfContactInfo}
+ </pre>
       </div>
+
+
     );
   }
+
+  
 
  
 

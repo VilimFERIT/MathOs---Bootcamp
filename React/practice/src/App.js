@@ -6,12 +6,6 @@ import React, { useEffect, useState } from "react";
 
 function App() {
 
-  const [contacts, updateContacts] = useState([]);
-
-  const addContact = (contactInfo) => {
-    updateContacts([...contacts, contactInfo]);
-  };
-
   return (
     <div className="App">
       <header className="App-header">
@@ -24,7 +18,7 @@ function App() {
           Edit <code>src/App.js</code> and save to reload.
         </p>
 
-        <p>contacts</p>
+        
 
         <a
           className="App-link"
