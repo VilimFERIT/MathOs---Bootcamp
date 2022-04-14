@@ -4,19 +4,27 @@ class ComplaintForm extends React.Component{
     constructor(props)
     {
         super(props);
-        this.state={complaints: [""], counter:0};
+        this.state={complaints: [''], counter:0};
+        //this.handleComplaintInput = this.handleComplaintInput.bind(this);
+        //this.handleComplaintChange = this.handleComplaintChange.bind(this);
     }
 
-    /*handleComplaintInput = (event) => {
-        setContactInfo((values) => (
-          {
-          ...values, email: event.target.value,
-        }
-        ));
-      };*/
-     
-    
-    addComplaint = (event) => {
+  
+/*
+      handleComplaintInput(event) {
+        event.preventDefault();
+        const { complaints} = this.state;
+        this.setState({complaints: [...this.state.complaints,complaints], counter: this.state.counter +  1,});  
+        console.log(this.state);   
+      }
+
+      handleComplaintChange(event, complaint) {
+        const { complaints } = this.state;
+        complaints[complaint] = event.target.value;
+        this.setState({complaints});
+      }*/
+
+   addComplaint = (event) => {
         event.preventDefault();
 
         let info = document.forms["complaintForm"]["complaint"].value;
@@ -39,6 +47,7 @@ class ComplaintForm extends React.Component{
     //<input type="submit" onClick={this.addComplaint} {this.countComplaint}></input>
     render()
     {
+      const { complaints} = this.state;
       return(
         <div>
           <h3>Please file your anonymous complaints below</h3>
@@ -54,12 +63,14 @@ class ComplaintForm extends React.Component{
           </form>
 
           <pre>
-           {this.state.complaints.map(complaint =><p>{complaint}</p>)}   
+          {this.state.complaints.map(complaint =><p>{complaint}</p>)}
+          
         </pre>
-       
+        
         </div>
       )
     }
   }
-
+//{this.state.complaints.map(complaint =><p>{complaint}</p>)}  
+//{complaints.map((complaint) => (<p>{complaint}</p>))}
   export default ComplaintForm;
