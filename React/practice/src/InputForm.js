@@ -76,23 +76,17 @@ function InputForm() {
  <input type="submit" onClick={handleSubmit}></input>
 
 
-
-
 <p name="info"></p>
 </form>
 
 <pre>
-   {listOfContactInfo}
+{listOfContactInfo}
  </pre>
       </div>
 
 
     );
   }
-
-  
-
- 
 
 
  /* const inputArray = [];

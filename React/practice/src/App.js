@@ -3,7 +3,12 @@ import './App.css';
 import InputForm from './InputForm';
 import Clock from './Clock';
 import React, { useEffect, useState } from "react";
+import ClockClass from './ClockClass'
+import ComplaintForm from './ComplaintForm'
 
+
+
+//komentar
 function App() {
 
   return (
@@ -12,7 +17,9 @@ function App() {
        
         {element}
         <InputForm/>
-        <Clock/>
+        <ClockClass/>
+        <ComplaintForm/>
+      
         
         <p>
           Edit <code>src/App.js</code> and save to reload.
