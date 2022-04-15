@@ -19,7 +19,7 @@ function App() {
       <header className="App-header">
        
         {element}
-        <Product/>
+        <ProductPut/>
       
         
         <p>

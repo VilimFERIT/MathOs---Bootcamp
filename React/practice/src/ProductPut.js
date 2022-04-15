@@ -10,7 +10,7 @@ export default function ProductPut() {
         event.preventDefault();
         let id = document.forms["productForm"]["product"].value;
         let price = document.forms["productForm"]["price"].value;
-        axios.put('https://localhost:44343/webapi/updatePriceMla?Id='+ id + '&price='+price).then((response)=>{
+        axios.put('https://localhost:44343/webapi/updatePriceMla?productId='+ id + '&newPrice='+price).then((response)=>{
             console.log(response.data);
             updateProduct(response.data);
         })
@@ -34,7 +34,6 @@ export default function ProductPut() {
           </form>
 
         <pre>
-        {products.map(product=><li>{product.Price} {product.Name} {product.Id}</li>)}
         </pre>
         </div>
   

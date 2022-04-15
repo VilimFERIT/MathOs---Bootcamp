@@ -4,7 +4,7 @@ import axios from 'axios';
 export default function ProductPost() {
 
 
-    const [products, getProduct] = useState([]);   
+    const [products, insertProduct] = useState([]);   
 
     const getProductById = (event) => {
         event.preventDefault();

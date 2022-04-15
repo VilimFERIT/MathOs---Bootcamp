@@ -303,7 +303,7 @@ namespace WebApplication1.Controllers
         [HttpPut]
         [Route("webapi/updatePriceMla")]
 
-        public async Task<HttpResponseMessage> UpdatePriceMlaAsync (Guid productId, decimal newPrice)
+        public async Task<HttpResponseMessage> UpdatePriceMlaAsync ([FromUri]Guid productId, [FromUri]decimal newPrice)
         {
       
                 
