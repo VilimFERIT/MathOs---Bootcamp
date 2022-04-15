@@ -12,7 +12,7 @@ class ClockClass extends React.Component{
     componentDidMount() 
     {
     setInterval(() => this.updateClock(),1000);
-      } //lifecycle metode
+      } //lifecycle metode?
     
     updateClock()
       {

@@ -10,6 +10,8 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using WebApplication.Common;
+using WebApplication.Model;
+using WebApplication.Model.Common;
 using WebApplication.Repository;
 using WebApplication.Repository.Common;
 using WebApplication.Service;
@@ -30,7 +32,7 @@ namespace WebApplication1
             //webapi controller
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
-
+            builder.RegisterType<ProductModel>().As<IProductModel>();
             builder.RegisterType<ProductService>().As<IProductService>();
             builder.RegisterType<ProductRepository>().As<IProductRepository>();
 

@@ -28,3 +28,22 @@ C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multila
 C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplicationService\bin\Debug\WebApplication.Service.Common.pdb
 C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplicationService\bin\Debug\ClassLibrary1.dll
 C:\Users\Korisnik\Documents\MathOs Bootcamp\3. - 7. dan -WebApi,ado.net, multilayer\WebApplication1\WebApplicationService\bin\Debug\ClassLibrary1.pdb
+C:\Users\Korisnik\Documents\HTML\WebApi,ado.net, multilayer, async, DI, sort itd\WebApplication1\WebApplicationService\bin\Debug\WebApplicationService.dll
+C:\Users\Korisnik\Documents\HTML\WebApi,ado.net, multilayer, async, DI, sort itd\WebApplication1\WebApplicationService\bin\Debug\WebApplicationService.pdb
+C:\Users\Korisnik\Documents\HTML\WebApi,ado.net, multilayer, async, DI, sort itd\WebApplication1\WebApplicationService\bin\Debug\ClassLibrary1.dll
+C:\Users\Korisnik\Documents\HTML\WebApi,ado.net, multilayer, async, DI, sort itd\WebApplication1\WebApplicationService\bin\Debug\WebApplication.Common.dll
+C:\Users\Korisnik\Documents\HTML\WebApi,ado.net, multilayer, async, DI, sort itd\WebApplication1\WebApplicationService\bin\Debug\WebApplication.Repository.Common.dll
+C:\Users\Korisnik\Documents\HTML\WebApi,ado.net, multilayer, async, DI, sort itd\WebApplication1\WebApplicationService\bin\Debug\WebApplication.Service.Common.dll
+C:\Users\Korisnik\Documents\HTML\WebApi,ado.net, multilayer, async, DI, sort itd\WebApplication1\WebApplicationService\bin\Debug\WebApplicationModel.dll
+C:\Users\Korisnik\Documents\HTML\WebApi,ado.net, multilayer, async, DI, sort itd\WebApplication1\WebApplicationService\bin\Debug\WebApplicationRepository.dll
+C:\Users\Korisnik\Documents\HTML\WebApi,ado.net, multilayer, async, DI, sort itd\WebApplication1\WebApplicationService\bin\Debug\ClassLibrary1.pdb
+C:\Users\Korisnik\Documents\HTML\WebApi,ado.net, multilayer, async, DI, sort itd\WebApplication1\WebApplicationService\bin\Debug\WebApplication.Common.pdb
+C:\Users\Korisnik\Documents\HTML\WebApi,ado.net, multilayer, async, DI, sort itd\WebApplication1\WebApplicationService\bin\Debug\WebApplication.Repository.Common.pdb
+C:\Users\Korisnik\Documents\HTML\WebApi,ado.net, multilayer, async, DI, sort itd\WebApplication1\WebApplicationService\bin\Debug\WebApplication.Service.Common.pdb
+C:\Users\Korisnik\Documents\HTML\WebApi,ado.net, multilayer, async, DI, sort itd\WebApplication1\WebApplicationService\bin\Debug\WebApplicationModel.pdb
+C:\Users\Korisnik\Documents\HTML\WebApi,ado.net, multilayer, async, DI, sort itd\WebApplication1\WebApplicationService\bin\Debug\WebApplicationRepository.pdb
+C:\Users\Korisnik\Documents\HTML\WebApi,ado.net, multilayer, async, DI, sort itd\WebApplication1\WebApplicationService\obj\Debug\WebApplication.Service.csproj.AssemblyReference.cache
+C:\Users\Korisnik\Documents\HTML\WebApi,ado.net, multilayer, async, DI, sort itd\WebApplication1\WebApplicationService\obj\Debug\WebApplication.Service.csproj.CoreCompileInputs.cache
+C:\Users\Korisnik\Documents\HTML\WebApi,ado.net, multilayer, async, DI, sort itd\WebApplication1\WebApplicationService\obj\Debug\WebApplication.Service.csproj.CopyComplete
+C:\Users\Korisnik\Documents\HTML\WebApi,ado.net, multilayer, async, DI, sort itd\WebApplication1\WebApplicationService\obj\Debug\WebApplicationService.dll
+C:\Users\Korisnik\Documents\HTML\WebApi,ado.net, multilayer, async, DI, sort itd\WebApplication1\WebApplicationService\obj\Debug\WebApplicationService.pdb

@@ -12,10 +12,12 @@ using System.Threading.Tasks;
 using System.Web.Http.Controllers;
 using WebApplication.Common;
 using WebApplication.Service.Common;
-
+using System.Web.Http.Cors;
 
 namespace WebApplication1.Controllers
 {
+
+    //[EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ProductController : ApiController
     {
         static List<Product> products = new List<Product>();
@@ -28,9 +30,6 @@ namespace WebApplication1.Controllers
         {
             Service = service;
 
-        }
-        public ProductController()
-        { 
         }
 
         //GET naredbe 
@@ -293,11 +292,12 @@ namespace WebApplication1.Controllers
             }
             return Request.CreateResponse(HttpStatusCode.OK, "You have inserted a new product!");
         }
-        
+
 
 
         //update - dependancy injection
         // PUT naredbe
+  
 
         //put - multilayer
         [HttpPut]

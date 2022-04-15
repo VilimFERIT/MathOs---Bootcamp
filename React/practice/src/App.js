@@ -5,6 +5,9 @@ import Clock from './Clock';
 import React, { useEffect, useState } from "react";
 import ClockClass from './ClockClass'
 import ComplaintForm from './ComplaintForm'
+import Product from './Product'
+import ProductGetById from './ProductGetById';
+import ProductPut from './ProductPut';
 
 
 
@@ -16,9 +19,7 @@ function App() {
       <header className="App-header">
        
         {element}
-        <InputForm/>
-        <ClockClass/>
-        <ComplaintForm/>
+        <Product/>
       
         
         <p>
