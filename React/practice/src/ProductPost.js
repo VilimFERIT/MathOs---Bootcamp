@@ -8,12 +8,14 @@ export default function ProductPost() {
 
     const getProductById = (event) => {
         event.preventDefault();
-        let id = document.forms["productForm"]["product"].value;
-        let price
+        let price = document.forms["productForm"]["price"].value;
+        let title = document.forms["productForm"]["title"].value;
+        let stock = document.forms["productForm"]["stock"].value;
+        let countryOfOrigin = document.forms["productForm"]["country"].value;
         console.log(id);
-        axios.put('https://localhost:44343/webapi/updatePriceMla?id='+ id).then((response)=>{
+        axios.put('https://localhost:44343/webapi/insertproductmla?Price='+ price +'&Title=' +title+'&Stock='+stock+'&countryOfOrigin=' + countryOfOrigin).then((response)=>{
             console.log(response.data);
-            getProduct(response.data);
+            insertProduct(response.data);
         })
         .catch(error => console.error('Error!'));
     }
@@ -30,11 +32,18 @@ export default function ProductPost() {
             <form name="productForm">
           <ul>
           <li>
-          <textarea id="product" ></textarea>
+          <textarea id="price" ></textarea>
           </li>  
           <li>
-   
-            <textarea id="price" ></textarea>
+            <textarea id="title" ></textarea>
+            </li>
+
+            <li>
+            <textarea id="stock" ></textarea>
+            </li>
+
+            <li>
+            <textarea id="country" ></textarea>
             </li>
           </ul>
           
